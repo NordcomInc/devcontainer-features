@@ -1,7 +1,7 @@
 
 # Android SDK (android-sdk)
 
-Ïnstall Android SDK cmdline- and platform-tools
+Install Android SDK cmdline- and platform-tools
 
 ## Example Usage
 
