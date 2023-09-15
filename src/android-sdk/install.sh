@@ -9,11 +9,16 @@ PLATFORM=$platform
 if [ -z "$PLATFORMS" ]; then
     PLATFORM="34"
 fi
+BUILD_TOOLS=$build_tools
+if [ -z "$BUILD_TOOLS" ]; then
+    BUILD_TOOLS="34.0.0"
+fi
 
 DEBIAN_FRONTEND="noninteractive" sudo apt update &&
     sudo apt install --no-install-recommends -y openjdk-17-jdk-headless unzip wget &&
     apt clean
 
+# Prepare install folder.
 mkdir -p "$ANDROID_HOME"
 chown -R "$_REMOTE_USER:$_REMOTE_USER" "$ANDROID_HOME"
 
@@ -44,7 +49,13 @@ export JAVA_HOME=$(dirname $(dirname $(update-alternatives --list javac 2>&1 | h
 # TODO: Update everything to future-proof for the link getting stale.
 # yes | sdkmanager "cmdline-tools;latest"
 # Download the platform tools.
-yes | sdkmanager "platform-tools" "platforms;android-$PLATFORM"
+yes | sdkmanager "platform-tools" "platforms;android-$PLATFORM" "build-tools;$BUILD_TOOLS"
 
 # Restore JAVA_HOME.
 export JAVA_HOME=$OG_JAVA_HOME
+
+# Exist subshell.
+exit
+
+# Make sure the Android SDK has the correct permissions.
+chown -R "$_REMOTE_USER:$_REMOTE_USER" "$ANDROID_HOME"
