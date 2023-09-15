@@ -2,18 +2,18 @@
     "name": "Android SDK",
     "id": "android-sdk",
     "version": "0.1.0",
-    "description": "A feature to remind you of your favorite color",
+    "description": "",
     "containerEnv": {
         "ANDROID_HOME": "/usr/local/lib/android",
         "ANDROID_SDK_ROOT": "$ANDROID_HOME",
-        "PATH": "$PATH:$ANDROID_HOME/cmdline-tools/bin:$ANDROID_HOME/platform-tools"
+        "PATH": "$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools"
     },
     "options": {
-        "favorite": {
+        "platform": {
             "type": "string",
             "default": "34",
             "description": "Platform version"
         }
     },
-    "installsAfter": ["ghcr.io/devcontainers/features/common-utils", "ghcr.io/devcontainers/features/java"]
+    "installsAfter": ["ghcr.io/devcontainers/features/common-utils", "ghcr.io/akhildevelops/devcontainer-features/apt"]
 }
