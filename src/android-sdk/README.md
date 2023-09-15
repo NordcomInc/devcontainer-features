@@ -15,7 +15,7 @@ Install Android SDK cmdline- and platform-tools
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| platform | Platform version | string | 34 |
+| platform | SDK platform version | string | 34 |
 
 
 
