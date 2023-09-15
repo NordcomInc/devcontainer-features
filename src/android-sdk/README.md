@@ -1,13 +1,13 @@
 
 # Android SDK (android-sdk)
 
-
+Ïnstall Android SDK cmdline- and platform-tools
 
 ## Example Usage
 
 ```json
 "features": {
-    "ghcr.io/NordcomInc/devcontainer-features/android-sdk:0": {}
+    "ghcr.io/NordcomInc/devcontainer-features/android-sdk:1": {}
 }
 ```
 
