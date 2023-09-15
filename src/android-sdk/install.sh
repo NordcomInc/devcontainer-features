@@ -41,8 +41,8 @@ OG_JAVA_HOME=$JAVA_HOME
 # thanks https://askubuntu.com/questions/772235/how-to-find-path-to-java#comment2258200_1029326.
 export JAVA_HOME=$(dirname $(dirname $(update-alternatives --list javac 2>&1 | head -n 1)))
 
-# Update everything to future-proof for the link getting stale.
-yes | sdkmanager "cmdline-tools;latest"
+# TODO: Update everything to future-proof for the link getting stale.
+# yes | sdkmanager "cmdline-tools;latest"
 # Download the platform tools.
 yes | sdkmanager "platform-tools" "platforms;android-$PLATFORM"
 
