@@ -1,7 +1,7 @@
 
 # Android SDK (android-sdk)
 
-Install Android SDK cmdline- and platform-tools
+Install Android SDK cmdline-, platform-, and, build-tools
 
 ## Example Usage
 
@@ -16,6 +16,7 @@ Install Android SDK cmdline- and platform-tools
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | platform | SDK platform version | string | 34 |
+| build_tools | SDK build-tools version | string | 34.0.0 |
 
 
 
