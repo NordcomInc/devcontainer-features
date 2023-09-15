@@ -1,0 +1,31 @@
+{
+    "name": "@nordcom/devcontainer-features",
+    "version": "0.1.0",
+    "prettier": "@nordcom/prettier",
+    "author": {
+        "name": "Nordcom Group Inc.",
+        "email": "opensource@nordcom.io",
+        "url": "https://nordcom.io/"
+    },
+    "contributors": [
+        {
+            "name": "Filiph Siitam Sandström",
+            "email": "filiph@nordcom.io",
+            "url": "https://github.com/filiphsps/"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/NordcomInc/devcontainer-features.git"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/NordcomInc/devcontainer-features/issues"
+    },
+    "homepage": "https://github.com/NordcomInc/devcontainer-features/#readme",
+    "devDependencies": {
+        "@nordcom/prettier": "0.1.1",
+        "prettier": "3.0.3"
+    },
+    "dependencies": {}
+}
