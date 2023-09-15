@@ -1,8 +1,8 @@
 {
     "name": "Android SDK",
     "id": "android-sdk",
-    "version": "0.1.0",
-    "description": "",
+    "version": "1.0.0",
+    "description": "Ïnstall Android SDK cmdline- and platform-tools",
     "containerEnv": {
         "ANDROID_HOME": "/usr/local/lib/android",
         "ANDROID_SDK_ROOT": "$ANDROID_HOME",
