@@ -2,7 +2,7 @@
     "name": "Android SDK",
     "id": "android-sdk",
     "version": "1.1.0",
-    "description": "Install Android SDK cmdline-, platform-, and, build-tools",
+    "description": "Install Android SDK `cmdline-tools`, `platform-tools`, and, `build-tools`.",
     "containerEnv": {
         "ANDROID_HOME": "/usr/local/lib/android",
         "ANDROID_SDK_ROOT": "$ANDROID_HOME",
