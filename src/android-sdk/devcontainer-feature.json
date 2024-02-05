@@ -18,6 +18,16 @@
             "type": "string",
             "default": "34.0.0",
             "description": "SDK build-tools version"
+        },
+        "base_packages": {
+            "type": "string",
+            "default": "",
+            "description": "packages will override default packages, split by space"
+        },
+        "extra_packages": {
+            "type": "string",
+            "default": "",
+            "description": "extra packages, split by space"
         }
     },
     "installsAfter": ["ghcr.io/devcontainers/features/common-utils", "ghcr.io/akhildevelops/devcontainer-features/apt"]

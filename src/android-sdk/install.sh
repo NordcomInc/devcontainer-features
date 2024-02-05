@@ -5,17 +5,24 @@ set +H
 URL_SDK="https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip"
 
 # Options.
-PLATFORM=$platform
-if [ -z "$PLATFORMS" ]; then
+if [ -z "$PLATFORM" ]; then
     PLATFORM="34"
 fi
-BUILD_TOOLS=$build_tools
 if [ -z "$BUILD_TOOLS" ]; then
     BUILD_TOOLS="34.0.0"
 fi
+if [ -n "$BASE_PACKAGES" ]; then
+    IFS=' ' read -ra PACKAGES <<< "$BASE_PACKAGES"
+else
+    PACKAGES=( "platform-tools" "platforms;android-$PLATFORM" "build-tools;$BUILD_TOOLS" )
+fi
+if [ -n "$EXTRA_PACKAGES" ]; then
+    IFS=' ' read -ra extra <<< "$EXTRA_PACKAGES"
+    PACKAGES=("${PACKAGES[@]}" "${extra[@]}")
+fi
 
 DEBIAN_FRONTEND="noninteractive" sudo apt update &&
-    sudo apt install --no-install-recommends -y openjdk-17-jdk-headless unzip wget &&
+    sudo apt install --no-install-recommends -y openjdk-17-jdk-headless unzip wget usbutils &&
     apt clean
 
 # Prepare install folder.
@@ -49,7 +56,7 @@ export JAVA_HOME=$(dirname $(dirname $(update-alternatives --list javac 2>&1 | h
 # TODO: Update everything to future-proof for the link getting stale.
 # yes | sdkmanager "cmdline-tools;latest"
 # Download the platform tools.
-yes | sdkmanager "platform-tools" "platforms;android-$PLATFORM" "build-tools;$BUILD_TOOLS"
+yes | sdkmanager "${PACKAGES[@]}"
 
 # Restore JAVA_HOME.
 export JAVA_HOME=$OG_JAVA_HOME

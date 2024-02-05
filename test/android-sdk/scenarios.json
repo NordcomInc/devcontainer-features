@@ -3,7 +3,8 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "android-sdk": {
-                "platform": "32"
+                "platform": "32",
+                "extra_packages": "ndk;25.2.9519653 sources;android-32"
             }
         }
     }
