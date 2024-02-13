@@ -54,8 +54,8 @@ yes | sdkmanager "platform-tools" "platforms;android-$PLATFORM" "build-tools;$BU
 # Restore JAVA_HOME.
 export JAVA_HOME=$OG_JAVA_HOME
 
+# Make sure the Android SDK has the correct permissions.
+sudo chown -R "$_REMOTE_USER:$_REMOTE_USER" "$ANDROID_HOME"
+
 # Exist subshell.
 exit
-
-# Make sure the Android SDK has the correct permissions.
-chown -R "$_REMOTE_USER:$_REMOTE_USER" "$ANDROID_HOME"
