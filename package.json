@@ -25,7 +25,7 @@
     "homepage": "https://github.com/NordcomInc/devcontainer-features/#readme",
     "devDependencies": {
         "@nordcom/prettier": "0.1.1",
-        "prettier": "3.4.1"
+        "prettier": "3.4.2"
     },
     "dependencies": {}
 }
