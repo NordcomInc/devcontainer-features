@@ -51,7 +51,7 @@ shopt -u dotglob
 
 cd $ANDROID_HOME
 
-export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
+export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/build-tools/$BUILD_TOOLS"
 
 # Only needed if OpenJDK is not disabled.
 # checked as Java Feature installs it via sdkman causing “update-alternatives: error: no alternatives for javac”
