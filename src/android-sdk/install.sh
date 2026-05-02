@@ -21,8 +21,14 @@ if [ -n "$EXTRA_PACKAGES" ]; then
     PACKAGES=("${PACKAGES[@]}" "${extra[@]}")
 fi
 
+LINUX_PACKAGES=("unzip" "wget" "usbutils")
+
+if [ $DISABLE_OPENJDK_INSTALLATION != "true"  ]; then
+    LINUX_PACKAGES=("${LINUX_PACKAGES[@]}" "openjdk-17-jdk-headless")
+fi
+
 DEBIAN_FRONTEND="noninteractive" sudo apt update &&
-    sudo apt install --no-install-recommends -y openjdk-17-jdk-headless unzip wget usbutils &&
+    sudo apt install --no-install-recommends -y "${LINUX_PACKAGES[@]}" &&
     apt clean
 
 # Prepare install folder.

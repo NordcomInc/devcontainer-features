@@ -28,6 +28,11 @@
             "type": "string",
             "default": "",
             "description": "extra packages, split by space"
+        },
+        "disable_openjdk_installation": {
+            "type": "boolean",
+            "default": false,
+            "description": "Disables the Installation of OpenJDK by this feature."
         }
     },
     "installsAfter": ["ghcr.io/devcontainers/features/common-utils", "ghcr.io/akhildevelops/devcontainer-features/apt"]
