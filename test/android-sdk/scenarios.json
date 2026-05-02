@@ -9,7 +9,7 @@
         }
     },
     "disabled_openjdk_installation": {
-        "image": "mcr.microsoft.com/java:dev-21-bookworm",
+        "image": "mcr.microsoft.com/devcontainers/java:dev-21-bookworm",
         "features": {
             "android-sdk": {
                 "platform": "32",
