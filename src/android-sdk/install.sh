@@ -53,16 +53,20 @@ cd $ANDROID_HOME
 
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 
-# Save original JAVA_HOME.
-OG_JAVA_HOME=$JAVA_HOME
+# Only needed if OpenJDK is not disabled.
+# checked as Java Feature installs it via sdkman causing “update-alternatives: error: no alternatives for javac”
 
-# thanks https://askubuntu.com/questions/772235/how-to-find-path-to-java#comment2258200_1029326.
+if [ $DISABLE_OPENJDK_INSTALLATION != "true"  ]; then
+    LINUX_PACKAGES=("${LINUX_PACKAGES[@]}" "openjdk-17-jdk-headless")
 
-# checking the output as dirname is returning “.”
+    # Save original JAVA_HOME.
+    OG_JAVA_HOME=$JAVA_HOME
 
-javac --version
+    # thanks https://askubuntu.com/questions/772235/how-to-find-path-to-java#comment2258200_1029326.
 
-export JAVA_HOME=$(dirname $(dirname $(update-alternatives --list javac 2>&1 | head -n 1)))
+    export JAVA_HOME=$(dirname $(dirname $(update-alternatives --list javac 2>&1 | head -n 1)))
+
+fi
 
 # TODO: Update everything to future-proof for the link getting stale.
 # yes | sdkmanager "cmdline-tools;latest"
