@@ -60,7 +60,7 @@ OG_JAVA_HOME=$JAVA_HOME
 
 # checking the output as dirname is returning “.”
 
-update-alternatives --list javac 2>&1 | head -n 1
+javac --version
 
 export JAVA_HOME=$(dirname $(dirname $(update-alternatives --list javac 2>&1 | head -n 1)))
 
