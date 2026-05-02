@@ -58,7 +58,9 @@ OG_JAVA_HOME=$JAVA_HOME
 
 # thanks https://askubuntu.com/questions/772235/how-to-find-path-to-java#comment2258200_1029326.
 
-java --version
+# checking the output as dirname is returning “.”
+
+update-alternatives --list javac 2>&1 | head -n 1
 
 export JAVA_HOME=$(dirname $(dirname $(update-alternatives --list javac 2>&1 | head -n 1)))
 
