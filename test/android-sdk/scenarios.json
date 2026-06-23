@@ -7,5 +7,15 @@
                 "extra_packages": "ndk;25.2.9519653 sources;android-32"
             }
         }
+    },
+    "disabled_openjdk_installation": {
+        "image": "mcr.microsoft.com/devcontainers/java:dev-21-bookworm",
+        "features": {
+            "android-sdk": {
+                "platform": "32",
+                "extra_packages": "ndk;25.2.9519653 sources;android-32",
+                "disable_openjdk_installation": "true"
+            }
+        }
     }
 }
