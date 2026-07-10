@@ -21,8 +21,14 @@ if [ -n "$EXTRA_PACKAGES" ]; then
     PACKAGES=("${PACKAGES[@]}" "${extra[@]}")
 fi
 
+LINUX_PACKAGES=("unzip" "wget" "usbutils")
+
+if [ $DISABLE_OPENJDK_INSTALLATION != "true"  ]; then
+    LINUX_PACKAGES=("${LINUX_PACKAGES[@]}" "openjdk-17-jdk-headless")
+fi
+
 DEBIAN_FRONTEND="noninteractive" sudo apt update &&
-    sudo apt install --no-install-recommends -y openjdk-17-jdk-headless unzip wget usbutils &&
+    sudo apt install --no-install-recommends -y "${LINUX_PACKAGES[@]}" &&
     apt clean
 
 # Prepare install folder.
@@ -45,13 +51,22 @@ shopt -u dotglob
 
 cd $ANDROID_HOME
 
-export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
+export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/build-tools/$BUILD_TOOLS"
 
-# Save original JAVA_HOME.
-OG_JAVA_HOME=$JAVA_HOME
+# Only needed if OpenJDK is not disabled.
+# checked as Java Feature installs it via sdkman causing “update-alternatives: error: no alternatives for javac”
 
-# thanks https://askubuntu.com/questions/772235/how-to-find-path-to-java#comment2258200_1029326.
-export JAVA_HOME=$(dirname $(dirname $(update-alternatives --list javac 2>&1 | head -n 1)))
+if [ $DISABLE_OPENJDK_INSTALLATION != "true"  ]; then
+    LINUX_PACKAGES=("${LINUX_PACKAGES[@]}" "openjdk-17-jdk-headless")
+
+    # Save original JAVA_HOME.
+    OG_JAVA_HOME=$JAVA_HOME
+
+    # thanks https://askubuntu.com/questions/772235/how-to-find-path-to-java#comment2258200_1029326.
+
+    export JAVA_HOME=$(dirname $(dirname $(update-alternatives --list javac 2>&1 | head -n 1)))
+
+fi
 
 # TODO: Update everything to future-proof for the link getting stale.
 # yes | sdkmanager "cmdline-tools;latest"
