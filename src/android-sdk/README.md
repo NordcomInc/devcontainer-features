@@ -19,6 +19,7 @@ Install Android SDK `cmdline-tools`, `platform-tools`, and, `build-tools`.
 | build_tools | SDK build-tools version | string | 34.0.0 |
 | base_packages | packages will override default packages, split by space | string | - |
 | extra_packages | extra packages, split by space | string | - |
+| disable_openjdk_installation | Disables the Installation of OpenJDK by this feature. | boolean | false |
 
 
 
