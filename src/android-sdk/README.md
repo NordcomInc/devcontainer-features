@@ -7,7 +7,7 @@ Install Android SDK `cmdline-tools`, `platform-tools`, and, `build-tools`.
 
 ```json
 "features": {
-    "ghcr.io/NordcomInc/devcontainer-features/android-sdk:1": {}
+    "ghcr.io/NordcomInc/devcontainer-features/android-sdk:2": {}
 }
 ```
 
