@@ -5,7 +5,6 @@
     "description": "Install Android SDK `cmdline-tools`, `platform-tools`, and, `build-tools`.",
     "containerEnv": {
         "ANDROID_HOME": "/usr/local/lib/android",
-        "ANDROID_SDK_ROOT": "$ANDROID_HOME",
         "PATH": "$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools"
     },
     "options": {
