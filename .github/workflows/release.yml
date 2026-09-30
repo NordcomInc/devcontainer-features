@@ -38,7 +38,7 @@ jobs:
                   message='Automated documentation update'
                   # Add / update and commit
                   git add */**/README.md
-                  git commit -m 'Docs: Sync docs with release.' || export NO_UPDATES=true
+                  git commit -m 'docs: Sync docs with release.' || export NO_UPDATES=true
                   # Push
                   if [ "$NO_UPDATES" != "true" ] ; then
                       git push origin "$branch"
